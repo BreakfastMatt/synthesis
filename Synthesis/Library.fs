@@ -12,9 +12,11 @@ let zollo x =
     match x>=0 with 
      |true -> (x * 2)
      |_ -> (x * -1)
-
-let min _ _ =
-    failwith "Not implemented"
+     
+let min a b =
+    match a < b with
+     |true -> a
+     |_ -> b
 
 let max _ _ =
     failwith "Not implemented"
