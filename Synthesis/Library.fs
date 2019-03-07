@@ -80,12 +80,24 @@ let toBinary x =  //converts a positive integer to a binary string.  Throw an ex
      |false -> 
      let rec binaryUp x  = 
         match x with 
-         |0 |1 -> string x //force it to be a string 
+         |0 |1 -> string x //force it to be a string (if x = 0, then return "0"; if x = 1, then return "1")
          |_ -> (binaryUp(x/2)) + string (x%2)
      binaryUp x 
         
-let bizFuzz _ =
-    failwith "Not implemented"
+let bizFuzz n = //accept an integer n and return the number of times a number between 1 and n inclusive is 
+                //divisible by 3, 
+                //divisible by 5, 
+                //and divisible by both 3 and 5. [target: 10 lines]
+     let rec betweenOneAndN x (acc1,acc2,acc3) = 
+        match (x <= n && n >= 1) with
+         |false -> (acc1,acc2,acc3)
+         |_ -> 
+          match (x%3=0,x%5=0,x%15=0) with
+           |(_,_,true) -> betweenOneAndN (x+1) (acc1+1,acc2+1,acc3+1)
+           |(_, true, false) -> betweenOneAndN (x+1) (acc1,acc2+1,acc3)
+           |(true, false , false) -> betweenOneAndN (x+1) (acc1+1,acc2,acc3)
+           |(false,false,false) -> betweenOneAndN (x+1) (acc1,acc2,acc3)
+     betweenOneAndN 1 (0,0,0)
 
 let monthDay _ _ =
     failwith "Not implemented"
