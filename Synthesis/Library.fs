@@ -55,10 +55,23 @@ let isLeap y = //returns true if the given year is a leap year. Every year that 
         |true -> true
         |_ -> false
 
-let month m = 
-    failwith "Not implemented"
+let month = function //accepts an integer between 1 and 12 inclusive, and returns the corresponding month and the number of days in that month, 
+                       //assuming that it is not a leap year. If an integer less than 1 or greater than 12 is supplied, an exception should be thrown. [target: 13 lines]
+     |1 -> ("January",31)
+     |2 -> ("February",28)
+     |3 -> ("March",31)
+     |4 -> ("April",30)
+     |5 -> ("May",31)
+     |6 -> ("June",30)
+     |7 -> ("July",31)
+     |8 -> ("August",31)
+     |9 -> ("September",30)
+     |10 -> ("October",31)
+     |11 -> ("November",30)
+     |12 -> ("December",31)
+     |_ -> failwith "Cannot be less than 1 or greater than 12"
 
-let toBinary _ =
+let toBinary _  = 
     failwith "Not implemented"
 
 let bizFuzz _ =
