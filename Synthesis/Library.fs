@@ -41,8 +41,10 @@ let digits x = //Create a function digits to count the number of digits in a num
       | _ -> match (v > -10 && v < 0) with |true -> acc + 1 |_ -> countDigits (v/10) (acc+1)
     match x with _ -> countDigits x 0
 
-let minmax _ =
-    failwith "Not implemented"
+let minmax (a:int,b:int,c:int,d:int) = //create a function minmax which finds the largest and smallest values out of four values that are provided  [target: 3 lines]
+    let Maximum = max a b |> max c |> max d 
+    let Minimum = min a b |> min c |> min d 
+    Minimum,Maximum
 
 let isLeap _ =
     failwith "Not implemented"
