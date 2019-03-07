@@ -1,12 +1,7 @@
 ﻿module Synthesis
 
 let abelar a =
-    match (12 < a  && a < 3097) with
-     |false -> false
-     |_ -> 
-       match a%12=0 with
-        |true -> true
-        |_ -> false
+    match ((12 < a  && a < 3097) && a % 12=0) with | false -> false | _-> true
         
 let area _ _ =
     failwith "Not implemented"
