@@ -46,8 +46,13 @@ let minmax (a:int,b:int,c:int,d:int) = //create a function minmax which finds th
     let Minimum = min a b |> min c |> min d 
     Minimum,Maximum
 
-let isLeap _ =
-    failwith "Not implemented"
+let isLeap y = //returns true if the given year is a leap year. Every year that is divisible by 4 is a leap year, unless it is also divisible by 100.
+              //However, if it is also divisible by 400, then it is still a leap year. The function should throw an exception if the input year is less than 1582. [target: 5 lines]
+    match y<1582 with |true -> failwith "Year cannot be less than 1582" |_ -> match y%4=0 with
+      |false -> false //not divisbile by 4
+      |_ -> match y%100=0 with
+        |false -> true //divisible by 4 & not divisble by 100
+        |_-> match y%400 =0 with |true -> true |_-> false
 
 let month _ =
     failwith "Not implemented"
