@@ -26,7 +26,7 @@ let max a b = //return the the larger of the two values  [target: 3 lines]
 let ofTime h m s = //converts hours, minutes & seconds to seconds.  [target: 1 line]
     (((h * 60) + m)*60) + s  
 
-let toTime s = //Create a function toTime to convert a number of seconds to hours, minutes, and seconds. [target: 7 lines]
+let toTime s = //Create a function toTime to convert a number of seconds to hours, minutes, and seconds  [target: 7 lines]
     let s = match s<0 with | true -> 0 | _ -> s //technically a shadowed s here, but uses same value as before. [shadowed s1]
     let h = match s%3600 = 0 with |true -> s/3600 | _ ->  match s%3600>=1 with |true -> s/3600 |_ -> 0 
     let s = s-(h*3600)//shadowed s2
@@ -34,8 +34,12 @@ let toTime s = //Create a function toTime to convert a number of seconds to hour
     let s = s-(m*60)//uses shadowed s2 to determine shadowed s3
     h,m,s//usses shadowed s3 here
 
-let digits _ =
-    failwith "Not implemented"
+let digits x = //Create a function digits to count the number of digits in a number. The input may be positive or negative  [target: 5 lines]
+    let rec countDigits v acc = //v = value, acc = accumulator param 
+     match v >= 0 with
+      |true -> match (v < 10) with |true -> acc + 1 |_ -> countDigits (v/10) (acc+1)
+      | _ -> match (v > -10 && v < 0) with |true -> acc + 1 |_ -> countDigits (v/10) (acc+1)
+    match x with _ -> countDigits x 0
 
 let minmax _ =
     failwith "Not implemented"
