@@ -3,8 +3,10 @@
 let abelar a =
     match ((12 < a  && a < 3097) && a % 12=0) with | false -> false | _-> true
         
-let area _ _ =
-    failwith "Not implemented"
+let area b h =
+    match (b>=0.0 && h>=0.0) with 
+     |false -> failwith "Cannot have a negative base or height"
+     |_ -> (b * h *0.5)
 
 let zollo _ =
     failwith "Not implemented"
