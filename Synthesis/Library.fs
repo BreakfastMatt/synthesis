@@ -18,8 +18,10 @@ let min a b =
      |true -> a
      |_ -> b
 
-let max _ _ =
-    failwith "Not implemented"
+let max a b =
+    match a > b with
+     |true -> a
+     |_ -> b 
 
 let ofTime _ _ _ =
     failwith "Not implemented"
