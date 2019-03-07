@@ -8,8 +8,10 @@ let area b h =
      |false -> failwith "Cannot have a negative base or height"
      |_ -> (b * h *0.5)
 
-let zollo _ =
-    failwith "Not implemented"
+let zollo x =
+    match x>=0 with 
+     |true -> (x * 2)
+     |_ -> (x * -1)
 
 let min _ _ =
     failwith "Not implemented"
