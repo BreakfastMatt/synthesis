@@ -1,5 +1,8 @@
 ﻿module Synthesis
 
+open System.Xml.Linq
+open System.Xml.Linq
+
 let abelar a = //return true if value is greater than 12, but less than 3097 and is a multiple of 12, otherwise return false.  [target: 1 line]
     ((12 < a  && a < 3097) && a % 12=0)
         
@@ -71,9 +74,16 @@ let month = function //accepts an integer between 1 and 12 inclusive, and return
      |12 -> ("December",31)
      |_ -> failwith "Cannot be less than 1 or greater than 12"
 
-let toBinary _  = 
-    failwith "Not implemented"
-
+let toBinary x =  //converts a positive integer to a binary string.  Throw an exception if a negative integer is supplied  [target: 11 lines]
+    match x < 0 with 
+     |true -> failwith "Cannot be negative"
+     |false -> 
+     let rec binaryUp x  = 
+        match x with 
+         |0 |1 -> string x //force it to be a string 
+         |_ -> (binaryUp(x/2)) + string (x%2)
+     binaryUp x 
+        
 let bizFuzz _ =
     failwith "Not implemented"
 
