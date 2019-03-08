@@ -133,5 +133,7 @@ let sqrt x = //this function will be used to help in the coord function below :D
     |true -> failwith "Nah fam"
     |_ -> calculate (x/2.0) 0
 
-let coord _ =
-    failwith "Not implemented"
+let coord x =  //[target: 6 lines -- excluding sqrt]
+    let dist (x1,y1) (x2,y2) =  sqrt (((x1-x2) * (x1-x2)) + ((y1-y2) * (y1-y2))) //calculate distance
+    let within (x1,y1) (width) (height) =  true
+    dist,within
