@@ -121,6 +121,17 @@ let monthDay d y = //accepts an integer d and a year y, and returns a string for
     |_ -> match (d <=365 & d >=1) with //Non-leap year 
         |false -> failwith "That day is not valid (it is either greater than 365 or less than 1"
         |_ -> doTheStuff (1,31,1,0)
-  
+
+let sqrt x = //this function will be used to help in the coord function below :D
+    let rec calculate guess i = 
+        match i with
+        |10 -> guess
+        |_ ->
+            let g = (guess + x/guess) / 2.0
+            calculate g (i+1)
+    match x <= 0.0 with
+    |true -> failwith "Nah fam"
+    |_ -> calculate (x/2.0) 0
+
 let coord _ =
     failwith "Not implemented"
