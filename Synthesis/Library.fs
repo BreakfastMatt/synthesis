@@ -134,9 +134,9 @@ let sqrt x = //this function will be used to help in the coord function below :D
     |_ -> calculate (x/2.0) 0
 
 let coord x =  //[target: 6 lines -- excluding sqrt]
-    let dist = fun (x1,y1) -> fun (x2,y2) ->  sqrt (((x1-x2) * (x1-x2)) + ((y1-y2) * (y1-y2)))  
-    let within = fun (x1,y1) -> fun (width)  -> fun (height) ->  ((x1 + y1 + width + height) = 0)//just a random boolean statement
-    dist, within //return a tuple containing two functions 
+    let dist (x1,y1) (x2,y2) =  sqrt (((x1-x2) * (x1-x2)) + ((y1-y2) * (y1-y2)))  
+    let within (x1,y1) width height  =  ((x1 + y1 + width + height) = 0.0)//just a random boolean statement
+    (dist, within) //return a tuple containing two functions 
 
     //so basically I want to have coord return two functions, the dist function and the within function.
     //then the coord >> (fun (x,_) -> x) function will determine which of the two functions that it will use (in this case the first, dist, function would be used)
